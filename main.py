@@ -7,21 +7,13 @@ np.set_printoptions(suppress=True)
 
 # Load the model
 model = tensorflow.keras.models.load_model('keras_model.h5')
-
-# Create the array of the right shape to feed into the keras model
-# The 'length' or number of images you can put into the array is
-# determined by the first position in the shape tuple, in this case 1.
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
-# Replace this with the path to your image
-image = Image.open('test_photo.jpg')
-
-#resize the image to a 224x224 with the same strategy as in TM2:
-#resizing the image to be at least 224x224 and then cropping from the center
+image = Image.open('images/duckk.jpg')
 size = (224, 224)
 image = ImageOps.fit(image, size, Image.ANTIALIAS)
 
-#turn the image into a numpy array
+# turn the image into a numpy array
 image_array = np.asarray(image)
 
 # display the resized image
@@ -36,3 +28,34 @@ data[0] = normalized_image_array
 # run the inference
 prediction = model.predict(data)
 print(prediction)
+
+five = prediction[0, 0]
+four = prediction[0, 1]
+three = prediction[0, 2]
+two = prediction[0, 3]
+one = prediction[0, 4]
+duck = prediction[0, 5]
+six = prediction[0, 6]
+
+maxi = max(five, four, three, two, one, duck, six)
+print(maxi)
+if maxi == five:
+    print(" 5 Runs ")
+
+if maxi == four:
+    print(" 4 Runs ")
+
+if maxi == three:
+    print(" 3 Runs ")
+
+if maxi == two:
+    print(" 2 Runs ")
+
+if maxi == one:
+    print(" 1 Runs ")
+
+if maxi == duck:
+    print(" 0 Runs - Duck ")
+
+if maxi == six:
+    print(" 6 Runs ")
