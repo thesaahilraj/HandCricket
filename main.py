@@ -9,7 +9,7 @@ np.set_printoptions(suppress=True)
 model = tensorflow.keras.models.load_model('keras_model.h5')
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
-image = Image.open('images/duckk.jpg')
+image = Image.open('User-image-Run.jpg')
 size = (224, 224)
 image = ImageOps.fit(image, size, Image.ANTIALIAS)
 

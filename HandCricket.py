@@ -11,26 +11,30 @@ np.set_printoptions(suppress=True)
 model = tensorflow.keras.models.load_model('keras_model.h5')
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 sum = 0
+
 while True:
+    vid = cv2.VideoCapture(0)
     comp = random.randint(0, 6)
-    """ image = Image.open('images/3.jpg')
+    while(True):
+        keypress = input("Enter C to capture next frame:")
+        if(keypress == 'C' or keypress == 'c'):
+            ret, frame = vid.read()
+            dsize = (224, 224)
+            cv2.resize(frame, dsize)
+            image_array = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            cv2.imwrite('User-image-Run.jpg', frame)
+            image_array = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            vid.release()
+            break
+    image = Image.open('User-image-Run.jpg')
     size = (224, 224)
     image = ImageOps.fit(image, size, Image.ANTIALIAS)
-    image_array = np.asarray(image) """
-    vid = cv2.VideoCapture(0)
 
-    while(True):
-        ret, frame = vid.read()
-        cv2.imshow('frame', frame)
-        dsize = (224, 224)
-        cv2.resize(frame, dsize)
-        image_array = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-    vid.release()
-    cv2.destroyAllWindows()
+    # turn the image into a numpy array
+    image_array = np.asarray(image)
 
     normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
+    print(type(normalized_image_array))
     data[0] = normalized_image_array
     prediction = model.predict(data)
     print(prediction)
