@@ -26,3 +26,8 @@ Machine Learning Based Game using Keras and TensorFlow
 
 ### OUTPUT RUNS SCORED
 
+![Runs Scored](https://media.giphy.com/media/VozLBnE2QBWYerleX2/giphy.gif)
+
+#### Sample Hand - Sign - 6 Runs
+
+![User-Image](User-image-Run.jpg)
