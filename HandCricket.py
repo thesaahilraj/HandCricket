@@ -53,68 +53,69 @@ while True:
     # find the max of all labels from the Predicted Array
     maxi = max(five, four, three, two, one, duck, six)
     # print(maxi)
+    run = 0
     if maxi == five:
         bat = 5
         print("Batsmen = ", bat)
         print("Bowler = ", ball)
         if bat == ball:
-            print("You are Out! , Total Runs Scored = ",run)
+            print("You are Out! , Total Runs Scored = ", run)
             break
-        run = run + ans
+        run = run + bat
         # print(run)
     if maxi == four:
         bat = 4
         print("Batsmen = ", bat)
         print("Bowler = ", ball)
         if bat == ball:
-            print("You are Out! , Total Runs Scored = ",run)
+            print("You are Out! , Total Runs Scored = ", run)
             break
-        run = run + ans
+        run = run + bat
         # print(run)
     if maxi == three:
         bat = 3
         print("Batsmen = ", bat)
         print("Bowler = ", ball)
         if bat == ball:
-            print("You are Out! , Total Runs Scored = ",run)
+            print("You are Out! , Total Runs Scored = ", run)
             break
-        run = run + ans
+        run = run + bat
         # print(run)
     if maxi == two:
         bat = 2
         print("Batsmen = ", bat)
         print("Bowler = ", ball)
         if bat == ball:
-            print("You are Out! , Total Runs Scored = ",run)
+            print("You are Out! , Total Runs Scored = ", run)
             break
-        run = run + ans
+        run = run + bat
         # print(run)
     if maxi == one:
         bat = 1
         print("Batsmen = ", bat)
         print("Bowler = ", ball)
         if bat == ball:
-            print("You are Out! , Total Runs Scored = ",run)
+            print("You are Out! , Total Runs Scored = ", run)
             break
-        run = run + ans
+        run = run + bat
         # print(run)
     if maxi == duck:
         bat = 0
         print("Batsmen = ", bat)
         print("Bowler = ", ball)
         if bat == ball:
-            print("You are Out! , Total Runs Scored = ",run)
+            print("You are Out! , Total Runs Scored = ", run)
             break
-        run = run + ans
+        run = run + bat
         # print(run)
     if maxi == six:
         bat = 6
         print("Batsmen = ", bat)
         print("Bowler = ", ball)
         if bat == ball:
-            print("You are Out! , Total Runs Scored = ",run)
+            print("You are Out! , Total Runs Scored = ", run)
             break
-        run = run + ans
+        run = run + bat
         # print(run)
     print("Total Run Score = ", run)
 # Will Add a tkinter file in Future Update
