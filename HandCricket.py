@@ -15,7 +15,7 @@ sum = 0
 # Load the Image onto the disk using OpenCV
 while True:
     vid = cv2.VideoCapture(0)
-    comp = random.randint(0, 6)
+    ball = random.randint(0, 6)
     while(True):
         keypress = input("Enter C to capture next frame:")
         if(keypress == 'C' or keypress == 'c'):
@@ -54,59 +54,67 @@ while True:
     maxi = max(five, four, three, two, one, duck, six)
     # print(maxi)
     if maxi == five:
-        ans = 5
-        print("Batsmen = ", ans)
-        print("Bowler = ", comp)
-        if comp == ans:
+        bat = 5
+        print("Batsmen = ", bat)
+        print("Bowler = ", ball)
+        if bat == ball:
+            print("You are Out! , Total Runs Scored = ",run)
             break
-        sum = sum+ans
-        # print(sum)
+        run = run + ans
+        # print(run)
     if maxi == four:
-        ans = 4
-        print("Batsmen = ", ans)
-        print("Bowler = ", comp)
-        if comp == ans:
+        bat = 4
+        print("Batsmen = ", bat)
+        print("Bowler = ", ball)
+        if bat == ball:
+            print("You are Out! , Total Runs Scored = ",run)
             break
-        sum = sum+ans
-        # print(sum)
+        run = run + ans
+        # print(run)
     if maxi == three:
-        ans = 3
-        print("Batsmen = ", ans)
-        print("Bowler = ", comp)
-        if comp == ans:
+        bat = 3
+        print("Batsmen = ", bat)
+        print("Bowler = ", ball)
+        if bat == ball:
+            print("You are Out! , Total Runs Scored = ",run)
             break
-        sum = sum+ans
-        # print(sum)
+        run = run + ans
+        # print(run)
     if maxi == two:
-        ans = 2
-        print("Batsmen = ", ans)
-        print("Bowler = ", comp)
-        if comp == ans:
+        bat = 2
+        print("Batsmen = ", bat)
+        print("Bowler = ", ball)
+        if bat == ball:
+            print("You are Out! , Total Runs Scored = ",run)
             break
-        sum = sum+ans
-        # print(sum)
+        run = run + ans
+        # print(run)
     if maxi == one:
-        ans = 1
-        print("Batsmen = ", ans)
-        print("Bowler = ", comp)
-        if comp == ans:
+        bat = 1
+        print("Batsmen = ", bat)
+        print("Bowler = ", ball)
+        if bat == ball:
+            print("You are Out! , Total Runs Scored = ",run)
             break
-        sum = sum+ans
-        # print(sum)
+        run = run + ans
+        # print(run)
     if maxi == duck:
-        ans = 0
-        print("Batsmen = ", ans)
-        print("Bowler = ", comp)
-        if comp == ans:
+        bat = 0
+        print("Batsmen = ", bat)
+        print("Bowler = ", ball)
+        if bat == ball:
+            print("You are Out! , Total Runs Scored = ",run)
             break
-        sum = sum+ans
-        # print(sum)
+        run = run + ans
+        # print(run)
     if maxi == six:
-        ans = 6
-        print("Batsmen = ", ans)
-        print("Bowler = ", comp)
-        if comp == ans:
+        bat = 6
+        print("Batsmen = ", bat)
+        print("Bowler = ", ball)
+        if bat == ball:
+            print("You are Out! , Total Runs Scored = ",run)
             break
-        sum = sum+ans
-        # print(sum)
-    print("Total Score = ", sum)
+        run = run + ans
+        # print(run)
+    print("Total Run Score = ", run)
+# Will Add a tkinter file in Future Update
