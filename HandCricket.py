@@ -12,6 +12,7 @@ model = tensorflow.keras.models.load_model('keras_model.h5')
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 sum = 0
 
+# Load the Image onto the disk using OpenCV
 while True:
     vid = cv2.VideoCapture(0)
     comp = random.randint(0, 6)
@@ -26,19 +27,21 @@ while True:
             image_array = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             vid.release()
             break
+    # Use Pillow to Resize the Image
     image = Image.open('User-image-Run.jpg')
     size = (224, 224)
     image = ImageOps.fit(image, size, Image.ANTIALIAS)
 
-    # turn the image into a numpy array
+    # Turn the image into a numpy array
     image_array = np.asarray(image)
 
     normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
-    print(type(normalized_image_array))
+    # print(type(normalized_image_array))
     data[0] = normalized_image_array
     prediction = model.predict(data)
-    print(prediction)
+    # print(prediction)
 
+    # Deploy the Label of Prediction Array
     five = prediction[0, 0]
     four = prediction[0, 1]
     three = prediction[0, 2]
@@ -47,8 +50,9 @@ while True:
     duck = prediction[0, 5]
     six = prediction[0, 6]
 
+    # find the max of all labels from the Predicted Array
     maxi = max(five, four, three, two, one, duck, six)
-    print(maxi)
+    # print(maxi)
     if maxi == five:
         ans = 5
         print("Batsmen = ", ans)
@@ -56,7 +60,7 @@ while True:
         if comp == ans:
             break
         sum = sum+ans
-        print(sum)
+        # print(sum)
     if maxi == four:
         ans = 4
         print("Batsmen = ", ans)
@@ -64,7 +68,7 @@ while True:
         if comp == ans:
             break
         sum = sum+ans
-        print(sum)
+        # print(sum)
     if maxi == three:
         ans = 3
         print("Batsmen = ", ans)
@@ -72,7 +76,7 @@ while True:
         if comp == ans:
             break
         sum = sum+ans
-        print(sum)
+        # print(sum)
     if maxi == two:
         ans = 2
         print("Batsmen = ", ans)
@@ -80,7 +84,7 @@ while True:
         if comp == ans:
             break
         sum = sum+ans
-        print(sum)
+        # print(sum)
     if maxi == one:
         ans = 1
         print("Batsmen = ", ans)
@@ -88,7 +92,7 @@ while True:
         if comp == ans:
             break
         sum = sum+ans
-        print(sum)
+        # print(sum)
     if maxi == duck:
         ans = 0
         print("Batsmen = ", ans)
@@ -96,7 +100,7 @@ while True:
         if comp == ans:
             break
         sum = sum+ans
-        print(sum)
+        # print(sum)
     if maxi == six:
         ans = 6
         print("Batsmen = ", ans)
@@ -104,5 +108,5 @@ while True:
         if comp == ans:
             break
         sum = sum+ans
-        print(sum)
+        # print(sum)
     print("Total Score = ", sum)
